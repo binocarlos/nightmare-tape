@@ -31,16 +31,12 @@ TapeNightmare.prototype.close = function(cb) {
 module.exports = function(serverFactory, closeServer, done){
 
   tape('create server & browser', function(t){
-    t.equal(1,1)
-    t.end()
-    /*
     serverFactory(function(err){
       tape.browser = new TapeNightmare()
       tape.browser.setup(function(){
         t.end()
       })
-    })
-    */
+    })    
   })
 
   tape.shutdown = function(){

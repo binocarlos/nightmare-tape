@@ -28,6 +28,12 @@ username: <input id="loginusername" /><br />
 		request.send(req.body);
 	}
 
+	var loginreply = null
+
+	function getReply(){
+		return loginreply
+	}
+
 	function login(){
 		var user = document.querySelector('#loginusername')
 
@@ -38,9 +44,7 @@ username: <input id="loginusername" /><br />
 				username:user.value
 			})
 		}, function(error, body){
-			console.log('login response');
-			console.dir(error);
-			console.dir(body);
+			loginreply = body
 		})
 	}
 
