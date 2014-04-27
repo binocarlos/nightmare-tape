@@ -1,0 +1,35 @@
+{
+  "name": "nightmare-tape",
+  "version": "0.0.0",
+  "description": "A wrapper for nightmare and tape for node.js full stack tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "set -e; for t in test/*.js; do node $t; done"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/binocarlos/nightmare-tape.git"
+  },
+  "keywords": [
+    "test",
+    "tape",
+    "phantom",
+    "phantomjs",
+    "nightmare"
+  ],
+  "author": "Kai Davenport",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/binocarlos/nightmare-tape/issues"
+  },
+  "homepage": "https://github.com/binocarlos/nightmare-tape",
+  "dependencies": {
+    "tape": "^2.12.3",
+    "nightmare": "^0.1.7"
+  },
+  "devDependencies": {
+    "concat-stream": "^1.4.5",
+    "ecstatic": "^0.5.1",
+    "express": "^4.1.0"
+  }
+}

@@ -1,0 +1,51 @@
+login<br /><br />
+
+username: <input id="loginusername" /><br />
+
+<button type="button" id="login">login</button>
+
+<script>
+
+	function request(req, done){
+	
+		var request = new XMLHttpRequest();
+		request.open(req.method.toUpperCase(), req.url, true);
+		request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+
+		request.onload = function() {
+		  if (request.status >= 200 && request.status < 400){
+		    var resp = request.responseText;
+		    done(null, resp)
+		  } else {
+		    done(request.status)
+		  }
+		};
+
+		request.onerror = function(err) {
+		  done(err)
+		};
+
+		request.send(req.body);
+	}
+
+	function login(){
+		var user = document.querySelector('#loginusername')
+
+		request({
+			method:'post',
+			url:'/hello',
+			body:JSON.stringify({
+				username:user.value
+			})
+		}, function(error, body){
+			console.log('login response');
+			console.dir(error);
+			console.dir(body);
+		})
+	}
+
+	var loginButton = document.querySelector('#login')
+
+	loginButton.addEventListener('click', login)
+
+</script>
