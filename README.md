@@ -11,9 +11,9 @@ $ npm install nightmare-tape --save-dev
 
 ## usage
 
-You create tape tests as normal but inside a wrapper that provides a hooked up nightmare browser.
+Create tape tests as normal but inside a wrapper that provides a hooked up nightmare browser.
 
-You pass a function which will create the server and another to close it down.
+Pass a function which will create the server and another to close it down.
 
 You MUST call tape.shutdown() as the last test otherwise phantom will hang.
 
