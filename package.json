@@ -1,6 +1,6 @@
 {
   "name": "nightmare-tape",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A wrapper for nightmare and tape for node.js full stack tests",
   "main": "index.js",
   "scripts": {
