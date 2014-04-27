@@ -15,6 +15,8 @@ You create tape tests as normal but inside a wrapper that provides a hooked up n
 
 You pass a function which will create the server and another to close it down.
 
+You MUST call tape.shutdown() as the last test otherwise phantom will hang.
+
 ```js
 var http = require('http')
 var concat = require('concat-stream')
