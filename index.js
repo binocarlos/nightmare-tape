@@ -42,11 +42,11 @@ module.exports = function(serverFactory, closeServer, done){
   tape.shutdown = function(){
     tape('shutdown server & browser', function(t){
       closeServer(function(){
-        console.log('-------------------------------------------');
-        console.log('after close');
-
         t.end()
-        tape.browser.close()
+        tape.browser.instance.exit()
+        setTimeout(function(){
+          process.exit(0);
+        }, 100)
       })
     })
   }
