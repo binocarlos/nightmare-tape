@@ -27,6 +27,7 @@ var server = null
 var app = null
 
 var serverState = {}
+var browserState = {}
 
 function serverFactory(done){
   app = express()
@@ -37,7 +38,6 @@ function serverFactory(done){
       serverState.username = body.username
       res.end('world ' + body.username)
     }))
-    res.send('world')
   })
   app.use(ecstatic(__dirname + '/www'))
   server.listen(8080, done)
@@ -57,8 +57,12 @@ NightmareTape(serverFactory, closeServer, function(err, tape){
       .type('input#loginusername', 'rodney')
       .click('button#login')
       .wait(1000)
+      .evaluate('getReply', function(val){
+        browserState.reply = val
+      })
       .run(function (err, nightmare) {
         t.equal(serverState.username, 'rodney')
+        t.equal(browserState.reply, 'world rodney')
         t.end()
       });
 
